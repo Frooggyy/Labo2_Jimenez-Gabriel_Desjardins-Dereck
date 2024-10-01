@@ -14,6 +14,40 @@ export function capitalizeFirstLetter(s) {
     if (typeof s !== 'string') return '';
     return s.charAt(0).toUpperCase() + s.slice(1);
 }
+
+export function factorialize(num){
+    if (num < 0) 
+          return -1;
+    else if (num == 0) 
+        return 1;
+    else {
+        return (num * factorialize(num - 1));
+    }
+}
+export function isPrime(num){
+    for(let i =2; i != num; i++){
+        if(num % i == 0){
+            return "false";
+        }
+    }
+    if(num <= 1){
+        return "false";
+    }
+    return "true";
+}
+
+export function posPrime(num){
+    let compteur = 0
+    let chiffre = 1
+    while(compteur != num){
+        chiffre++
+        if(isPrime(chiffre) == "true"){
+            compteur++
+        }
+    }
+    return chiffre
+}
+
 export const nowInSeconds = () => {
     const now = new Date();
     return Math.round(now.getTime() / 1000);
