@@ -10,7 +10,7 @@ export default class MathsController extends Controller {
         let params = this.HttpContext.path.params;
         let singleParams = ["!", "p", "np"];
         if(singleParams.includes(params.op)){
-            if(n != null || n != undefined){
+            if( params.n || params.n != null || params.n != undefined ){
                 switch(params.op){
                     case"!":
                         this.HttpContext.response.JSON(utilities.factorialize(params.n));
@@ -28,8 +28,8 @@ export default class MathsController extends Controller {
                 }
             }
             else{
-                let reponse = "n parameter is not defined"
-                this.HttpContext.response.JSON()
+                let response= {op: params.op, error: "n parameter is missing"};
+                this.HttpContext.response.JSON(response);
             }
 
         }
@@ -57,3 +57,5 @@ export default class MathsController extends Controller {
         }
     }
 }
+<DIv>{JSONResponse}</DIv>
+JSONReponse = "{op: '!', n:'2', value}"
