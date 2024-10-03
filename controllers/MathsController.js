@@ -6,7 +6,7 @@ export default class MathsController extends Controller {
         super(HttpContext);
     }
 
-    get(id) {
+    get() {
         let params = this.HttpContext.path.params;
         let singleParams = ["!", "p", "np"];
         if (params.op != null || params.op != undefined) {
@@ -103,5 +103,14 @@ export default class MathsController extends Controller {
             params.error = "op parameter is missing";
             this.HttpContext.response.JSON(params);
         }
+    }
+    post() {
+        this.HttpContext.response.notFound("Post not implemented");
+    }
+    put() {
+        this.HttpContext.response.notFound("Put not implemented");
+    }
+    delete() {
+        this.HttpContext.response.notFound("Delete not implemented");
     }
 }
