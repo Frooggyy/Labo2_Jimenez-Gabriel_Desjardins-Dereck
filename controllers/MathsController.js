@@ -8,8 +8,6 @@ export default class MathsController extends Controller {
 
     get() {
         let params = this.HttpContext.path.params;
-        console.log(params);
-        
         let singleParams = ["!", "p", "np"];
         if (params.op != null || params.op != undefined) {
             if (singleParams.includes(params.op)) {
@@ -54,10 +52,14 @@ export default class MathsController extends Controller {
                         if (!isNaN(params.x)) {
                             if (!isNaN(params.y)) {
                                 if (Object.keys(params).length <= 3) {
-                                    params.x = parseInt(params.x);
-                                    params.y = parseInt(params.y);
+                                    params.x = parseFloat(params.x);
+                                    params.y = parseFloat(params.y);
                                     switch (params.op) {
                                         case " ":
+                                            params.value = params.x + params.y;
+                                            this.HttpContext.response.JSON(params);
+                                            break;
+                                            case "+":
                                             params.value = params.x + params.y;
                                             this.HttpContext.response.JSON(params);
                                             break;
