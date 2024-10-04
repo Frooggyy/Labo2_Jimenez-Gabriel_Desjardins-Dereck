@@ -106,4 +106,13 @@ export default class MathsController extends Controller {
             this.HttpContext.response.JSON(params);
         }
     }
+    post() {
+        this.HttpContext.response.notFound("Post not implemented");
+    }
+    put() {
+        this.HttpContext.response.notFound("Put not implemented");
+    }
+    delete() {
+        this.HttpContext.response.notFound("Delete not implemented");
+    }
 }
