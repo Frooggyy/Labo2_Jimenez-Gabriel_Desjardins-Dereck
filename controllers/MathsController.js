@@ -6,8 +6,10 @@ export default class MathsController extends Controller {
         super(HttpContext);
     }
 
-    get(id) {
+    get() {
         let params = this.HttpContext.path.params;
+        console.log(params);
+        
         let singleParams = ["!", "p", "np"];
         if (params.op != null || params.op != undefined) {
             if (singleParams.includes(params.op)) {

@@ -3,23 +3,19 @@ let contentScrollPosition = 0;
 Init_UI();
 
 function Init_UI() {
-    renderResults({op:"!", n:1});
-    renderResults();
-    renderResults();
-    renderResults();
-    renderResults();
-    renderResults();
-    renderResults();
-    renderResults();
-    renderResults();
+    renderResults({op:"!",n:2});
+    
 }
 
 
-async function renderResults(query) {
-    let results = await API_GetResults(query);
-    eraseContent();
+async function renderResults(props) {
+
+    console.log();
+    let results = await API_GetResults(props);
+    
     if (results) {
             $("#tests").append(renderResult(results));
+            
     } else {
         renderError("Service introuvable");
     }
@@ -37,7 +33,8 @@ function renderError(message) {
         `)
     );
 }
-function renderResults(result) {
+function renderResult(result) {
+    console.log(result);
     return $(`
      <div>
         <span>OK ===> ${result}</span>
