@@ -13,7 +13,9 @@ export default class MathsController extends Controller {
             if (singleParams.includes(params.op)) {
                 if (params.n != null || params.n != undefined) {
                     if (params.n != NaN) {
-                        if(Number.isInteger(parseInt(params.n)) && parseInt(params.n) >= 1){
+                        if(Number.isInteger(parseFloat(params.n)) && parseInt(params.n) >= 1){
+
+                            console.log(Number.isInteger(parseInt(params.n)) )
                             if (Object.keys(params).length <= 2) {
                                 switch (params.op) {
                                     case "!":
@@ -35,6 +37,7 @@ export default class MathsController extends Controller {
                             }
                         }else{
                             params.error = "n must be an integer > 0";
+                            
                             this.HttpContext.response.JSON(params);
                         }
 

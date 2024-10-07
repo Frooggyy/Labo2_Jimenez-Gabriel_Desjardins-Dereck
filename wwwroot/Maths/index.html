@@ -18,8 +18,9 @@
         <fieldset>
             <legend><b>Url du service</b></legend>
             <label for="urlSite">Url du site:</label>
-            <input type="text"id="urlSite" name="urlSite">
-            <input type="submit" onclick="Init_UI()"value="Démarrer le test">
+            <input type="text"id="urlSite" name="urlSite" value="http://localhost:5000">
+            <span>/api/maths</span>
+            <input type="button" onclick="Init_UI(document.getElementById('urlSite').value)"value="Démarrer le test">
             <input type="submit" value="Aide">
         </fieldset>
         <br>
